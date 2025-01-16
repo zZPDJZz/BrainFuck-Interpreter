@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
-#include <fstream>
 
 //make fuckin string
-const int fucklength = 100;
+const int fucklength = 7500;
 
 
 int main() {
