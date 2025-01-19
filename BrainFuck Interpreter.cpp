@@ -2,20 +2,17 @@
 #include <string>
 
 const int fucklength = 7500;
-
-
 int main() {
 	//int pointers and arrays
 	std::cout << "Enter BrainFuck Code Here: \n";
-	int writepointer = 0;
-	int inputlength = 0;
 	std::string fuckin{};
 	std::cin >> fuckin;
-	inputlength = fuckin.length();
-	int fuckout[fucklength] = { 0 };
-	int temp = 0;
 	std::cout << "\n" << "\n";
+	int inputlength = fuckin.length(), fuckout[fucklength] = { 0 }, temp = 0, writepointer = 0, bracketnum[256] = { 0 }, bracketpoint = 0;
+	
+	//fix multiple brackets maybe use array
 	for (int iteration = 0; iteration < inputlength; iteration++) {
+
 		char currentchar = fuckin[iteration];
 		//run functions for brainfuck
 		switch (currentchar) {
@@ -33,21 +30,23 @@ int main() {
 			break;
 		case '[':
 			if (fuckout[writepointer] != 0) {
-				temp = iteration;
+				bracketnum [bracketpoint] = writepointer;
+				bracketpoint++;
 			}
 			break;
 		case ']':
 			if (fuckout[writepointer] != 0) {
-				iteration = temp;
+				bracketnum[bracketpoint];
 			}
 			else {
+				bracketpoint--;
 			}
 			break;
 			//print when called
 		case '.':
 			std::cout << static_cast<char>(fuckout[writepointer]);
 			break;
-		case ',':
+		case ',': //figure out how to make commas work
 			break;
 			//blank = cycle iteration
 		default:
